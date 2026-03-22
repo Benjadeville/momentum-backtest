@@ -33,6 +33,31 @@ Signal: go long if the 12-month return is positive, stay in cash otherwise.
 - Longer lookback windows (12M) maximize returns but increase drawdown vs shorter windows (3M: -23.7%)
 - The strategy is in cash 25-38% of the time, providing meaningful downside protection
 
+## Analysis & Conclusion
+
+The momentum strategy does not outperform Buy & Hold on raw returns — and that is
+an honest, expected result consistent with academic literature post-2010.
+
+However, raw return is not the right metric to judge a momentum strategy.
+Its value lies in **drawdown reduction**: by moving to cash during bearish periods,
+the strategy avoids the worst of market selloffs. This matters in practice because
+institutional investors and fund managers cannot afford to show clients -33% drawdowns
+— capital outflows and panic selling often do more damage than the drawdown itself.
+
+**What this strategy does well:**
+- Reduces max drawdown on SPY (-31.2% vs -33.7% Buy & Hold)
+- Dramatically limits drawdown on Bonds (-8.7%)
+- Provides a systematic, rules-based framework with no discretionary bias
+
+**What it does not do:**
+- It does not generate alpha over a long bull market (2015–2024 was strongly bullish)
+- It sacrifices upside by staying in cash during momentum reversals
+
+**How to improve it:**
+- Combine with a volatility filter (reduce position size when VIX is elevated)
+- Add a macro trend signal (e.g. 200-day moving average filter)
+- Apply cross-sectional momentum: rotate into the best performing asset each month
+
 ## Approach
 
 - **Data**: Adjusted closing prices via `yfinance` (2015–2024)
